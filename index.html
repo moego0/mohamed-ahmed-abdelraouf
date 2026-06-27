@@ -1578,8 +1578,9 @@
       
       camera.rotation.z = Math.sin(time * 0.12) * 0.006;
 
-      // Brain rotation
-      var rotationSpeed = REDUCED ? 0 : 0.0022;
+      // Brain rotation — the 3D scene is the core content, so keep it
+      // alive even under reduced-motion (smooth, non-jarring motion).
+      var rotationSpeed = 0.0022;
       if (rotationSpeed > 0) {
         var cosR = Math.cos(rotationSpeed);
         var sinR = Math.sin(rotationSpeed);
@@ -1610,19 +1611,17 @@
       neuronMat.uniforms.uTime.value = time;
       glowMat.uniforms.uTime.value   = time;
 
-      if (!REDUCED) {
-        tickSignals(dt);
-        tickDust();
-      }
+      // Signal pulses + drifting dust keep flowing — part of the living scene.
+      tickSignals(dt);
+      tickDust();
 
       renderer.render(scene, camera);
     }
 
-    if (REDUCED) {
-      renderer.render(scene, camera);
-    } else {
-      render();
-    }
+    /* Always run the render loop so the camera still responds to scroll
+       and pointer input. REDUCED only suppresses the heavy auto-motion
+       (brain spin, signals, dust, idle sway) inside render(). */
+    render();
 
     window.addEventListener('resize', function () {
       camera.aspect = innerWidth / innerHeight;

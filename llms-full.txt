@@ -4,7 +4,7 @@ Owner: Mohamed Ahmed Abdelraouf
 Role: AI & Embedded Systems Engineer, Computer Science & AI Student
 Email: bazeet298@gmail.com
 GitHub: https://github.com/moego0
-LinkedIn: https://www.linkedin.com/in/mohamed-a-abdelraouf
+LinkedIn: www.linkedin.com/in/mohamedahmedabdelraouf
 Location: Egypt
 
 ---

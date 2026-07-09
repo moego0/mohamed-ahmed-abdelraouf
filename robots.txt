@@ -33,4 +33,4 @@ User-agent: Bytespider
 Allow: /
 
 # Sitemap Index Link
-Sitemap: https://moego0.github.io/sitemap.xml
+Sitemap: https://moego0.github.io/mohamed-ahmed-abdelraouf/sitemap.xml
